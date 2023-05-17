@@ -31,6 +31,8 @@ export default defineType({
         { type: 'Quote' },
         { type: 'FeaturedItems' },
         { type: 'MediaModule' },
+        { type: 'CtaBanner' },
+        { type: 'FeaturedText' },
       ],
     }),
   ],

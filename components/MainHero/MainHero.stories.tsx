@@ -5,9 +5,6 @@ import { MainHero } from './MainHero'
 export default {
   title: 'Modules/MainHero',
   component: MainHero,
-  argTypes: {
-    heroImage: { control: { type: 'text' } },
-  },
 } as ComponentMeta<typeof MainHero>
 
 const Template: ComponentStory<typeof MainHero> = (

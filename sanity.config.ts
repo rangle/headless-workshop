@@ -21,6 +21,8 @@ import quote from './sanity/schemas/objects/quote'
 import featuredItems from './sanity/schemas/objects/featuredItems'
 import mediaModule from './sanity/schemas/objects/mediaModule'
 import cta from './sanity/schemas/objects/cta'
+import ctaBanner from './sanity/schemas/objects/ctaBanner'
+import featuredText from './sanity/schemas/objects/featuredText'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -43,6 +45,8 @@ export default defineConfig({
       featuredItems,
       mediaModule,
       cta,
+      ctaBanner,
+      featuredText,
     ],
   },
   plugins: [
