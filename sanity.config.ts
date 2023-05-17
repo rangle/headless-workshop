@@ -3,30 +3,28 @@
  */
 
 import { visionTool } from '@sanity/vision'
-import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
-import { previewDocumentNode } from 'plugins/previewPane'
-import { productionUrl } from 'plugins/productionUrl'
-import { pageStructure, singletonPlugin } from 'plugins/settings'
+import {
+  apiVersion,
+  dataset,
+  previewSecretId,
+  projectId,
+} from './sanity/lib/sanity.api'
+import { previewDocumentNode } from './sanity/plugins/previewPane'
+import { productionUrl } from './sanity/plugins/productionUrl'
+import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import page from 'schemas/documents/page'
-import project from 'schemas/documents/project'
-import duration from 'schemas/objects/duration'
-import milestone from 'schemas/objects/milestone'
-import timeline from 'schemas/objects/timeline'
-import home from 'schemas/singletons/home'
-import settings from 'schemas/singletons/settings'
+import page from './sanity/schemas/documents/page'
+import mainHero from './sanity/schemas/objects/mainHero'
+import quote from './sanity/schemas/objects/quote'
+import featuredItems from './sanity/schemas/objects/featuredItems'
+import mediaModule from './sanity/schemas/objects/mediaModule'
+import cta from './sanity/schemas/objects/cta'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
-export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
-  home.name,
-  page.name,
-  project.name,
-]
+export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [page.name]
 
 export default defineConfig({
   basePath: '/studio',
@@ -37,25 +35,24 @@ export default defineConfig({
     // If you want more content types, you can add them to this array
     types: [
       // Singletons
-      home,
-      settings,
       // Documents
-      duration,
       page,
-      project,
       // Objects
-      milestone,
-      timeline,
+      mainHero,
+      quote,
+      featuredItems,
+      mediaModule,
+      cta,
     ],
   },
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings]),
+      // structure: pageStructure(),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    // singletonPlugin([home.name, settings.name]),
     // Add the "Open preview" action
     productionUrl({
       apiVersion,
