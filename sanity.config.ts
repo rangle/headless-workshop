@@ -3,26 +3,30 @@
  */
 
 import { visionTool } from '@sanity/vision'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+
 import {
   apiVersion,
   dataset,
   previewSecretId,
   projectId,
 } from './sanity/lib/sanity.api'
+import { deskStructure } from './sanity/plugins/deskStructure'
 import { previewDocumentNode } from './sanity/plugins/previewPane'
 import { productionUrl } from './sanity/plugins/productionUrl'
 import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import footer from './sanity/schemas/documents/footer'
+import navigation from './sanity/schemas/documents/navigation'
 import page from './sanity/schemas/documents/page'
-import mainHero from './sanity/schemas/objects/mainHero'
-import quote from './sanity/schemas/objects/quote'
-import featuredItems from './sanity/schemas/objects/featuredItems'
-import mediaModule from './sanity/schemas/objects/mediaModule'
 import cta from './sanity/schemas/objects/cta'
 import ctaBanner from './sanity/schemas/objects/ctaBanner'
+import featuredItems from './sanity/schemas/objects/featuredItems'
 import featuredText from './sanity/schemas/objects/featuredText'
+import mainHero from './sanity/schemas/objects/mainHero'
+import mediaModule from './sanity/schemas/objects/mediaModule'
+import quote from './sanity/schemas/objects/quote'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -39,6 +43,8 @@ export default defineConfig({
       // Singletons
       // Documents
       page,
+      navigation,
+      footer,
       // Objects
       mainHero,
       quote,
@@ -51,7 +57,7 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-      // structure: pageStructure(),
+      structure: deskStructure,
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
