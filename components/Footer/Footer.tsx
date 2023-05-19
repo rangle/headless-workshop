@@ -23,14 +23,16 @@ export const Footer = ({ copyright, socialLinks, privacyPolicy }: Props) => {
     <footer className="bg-primary-700 py-8 md:py-16">
       <div className="container mx-auto px-5 text-white">
         <div>
-          <FooterLogo />
+          <Link href={'/'}>
+            <FooterLogo />
+          </Link>
         </div>
         <div className="flex flex-col-reverse gap-12 pt-12 md:flex-row md:items-center md:justify-between md:pt-8">
           <div className="flex flex-col gap-2 md:flex-row md:gap-4 ">
             {copyright && <span>{copyright}</span>}
             {privacyPolicy && (
               <Link
-                className="border-b-2 border-transparent text-white hover:border-white"
+                className="underline hover:no-underline"
                 href={privacyPolicy.url}
               >
                 {privacyPolicy.label}
@@ -42,7 +44,12 @@ export const Footer = ({ copyright, socialLinks, privacyPolicy }: Props) => {
               {socialLinks.map((link) => {
                 return (
                   <li key={link.url}>
-                    <a href={link.url}>{link.label}</a>
+                    <Link
+                      className="border-b-2 border-transparent font-semibold text-white hover:border-white"
+                      href={link.url}
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 )
               })}
