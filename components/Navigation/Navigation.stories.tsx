@@ -15,7 +15,7 @@ const Template = (args: ComponentProps<typeof Navigation>) => {
     <>
       <Navigation {...args} />
       <div className="bg-primary-50 ">
-        <div className="container mx-auto h-[50vh] px-5 pt-[10vh]">
+        <div className="container mx-auto h-[50vh] px-5 pt-[100px]">
           Hero content starts here
         </div>
       </div>
@@ -31,21 +31,18 @@ const Template = (args: ComponentProps<typeof Navigation>) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  // image:,
-  // imageAlt:,
   menu: [
     {
       label: 'Home',
-      hasPrimaryCta: false,
       url: '/',
     },
     {
       label: 'Services',
-      url: '/services',
+      url: '/',
     },
     {
-      label: 'About',
-      url: '/about',
+      label: 'About Us',
+      url: '/',
     },
   ],
 }

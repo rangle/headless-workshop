@@ -1,7 +1,7 @@
-import * as React from 'react'
 import Link from 'next/link'
-import ImageBox from 'components/shared/ImageBox'
-import { Cta, CtaProps } from '../Cta/Cta'
+import * as React from 'react'
+
+import { NavLogo } from './NavLogo'
 
 type MenuItem = {
   label: string
@@ -19,7 +19,9 @@ export const Navigation = ({ menu }: Props) => {
     <div className="container relative mx-auto">
       <div className="absolute w-full px-5 pt-6">
         <div className="flex justify-between">
-          <div>Pangea</div>
+          <Link href={'/'}>
+            <NavLogo />
+          </Link>
           <nav>
             {menu && (
               <ul className="ml-0 flex flex-row gap-8 ">
