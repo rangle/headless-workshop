@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import ImageBox from 'components/shared/ImageBox'
-import { Cta, CtaProps } from '../Cta/Cta'
 import * as React from 'react'
+
+import { Cta, CtaProps } from '../Cta/Cta'
 
 export type MainHero = {
   backgroundImage?: any
@@ -25,7 +26,7 @@ export const MainHero = ({
   cta,
 }: Props) => {
   return (
-    <div className="relative bg-grey-50 after:absolute after:bottom-0 after:block  after:h-28 after:w-full after:bg-gradient-to-t after:from-grey-50 after:content-['']">
+    <div className="relative bg-grey-50 pt-[100px] after:absolute after:bottom-0 after:block  after:h-28 after:w-full after:bg-gradient-to-t after:from-grey-50 after:content-['']">
       {backgroundImage && (
         <ImageBox
           image={backgroundImage}

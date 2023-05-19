@@ -1,15 +1,18 @@
 import { PreviewSuspense } from '@sanity/preview-kit'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
-import {
-  getHomePageTitle,
-  getPageBySlug,
-  getPagePaths,
-} from '../sanity/lib/sanity.client'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
 import { PagePayload, SettingsPayload } from 'types'
-import { pagesBySlugQuery } from '../sanity/lib/sanity.queries'
 import { buildComponent } from 'utils/buildComponent'
+
+import {
+  getFooter,
+  getHomePageTitle,
+  getNavigation,
+  getPageBySlug,
+  getPagePaths,
+} from '../sanity/lib/sanity.client'
+import { pagesBySlugQuery } from '../sanity/lib/sanity.queries'
 
 const PagePreview = lazy(() => import('layout/Preview'))
 
@@ -66,9 +69,11 @@ export const getStaticProps: GetStaticProps<
 
   const token = previewData.token
 
-  const [page, homePageTitle] = await Promise.all([
+  const [page, homePageTitle, navigation, footer] = await Promise.all([
     getPageBySlug({ token, slug: params.slug ? params.slug.join('/') : '/' }),
     getHomePageTitle({ token }),
+    getNavigation({ token }),
+    getFooter({ token }),
   ])
 
   if (!page) {
@@ -79,6 +84,10 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
+      global: {
+        navigation,
+        footer,
+      },
       page,
       homePageTitle,
       preview,

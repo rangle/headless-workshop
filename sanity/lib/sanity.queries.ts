@@ -14,3 +14,11 @@ export const pagesBySlugQuery = groq`
 export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
 `
+
+export const footerQuery = groq`
+  *[_type == "footer"][0]
+`
+
+export const navigationQuery = groq`
+  *[_type == "navigation"][0]
+`

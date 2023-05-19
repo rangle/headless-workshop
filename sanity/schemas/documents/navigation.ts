@@ -29,7 +29,7 @@ export default defineType({
   fields: [
     defineField({
       title: 'Menu',
-      name: 'menuLinks',
+      name: 'menu',
       type: 'array',
       of: [menuLink],
     }),

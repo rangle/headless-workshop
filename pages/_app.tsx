@@ -1,9 +1,16 @@
 import 'styles/index.css'
-import { mono, sans, serif } from '../styles/font'
-import { AppProps } from 'next/app'
+
+import { Footer } from 'components/Footer'
+import { Navigation } from 'components/Navigation'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
+import { AppProps } from 'next/app'
+
+import { mono, sans, serif } from '../styles/font'
 
 export default function App({ Component, pageProps }: AppProps) {
+  const navigation = pageProps?.global?.navigation
+  const footer = pageProps?.global?.footer
+
   return (
     <>
       <style jsx global>
@@ -15,8 +22,10 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
+      <Navigation menu={navigation?.menuLinks} />
       {pageProps?.preview && <PreviewBanner />}
       <Component {...pageProps} />
+      <Footer {...footer} />
     </>
   )
 }
