@@ -48,4 +48,17 @@ export default defineType({
       title: 'Background Image',
     }),
   ],
+  preview: {
+    select: {
+      title: 'heading',
+      media: 'heroImage',
+    },
+    prepare({ title, media }) {
+      return {
+        subtitle: 'Main Hero',
+        media,
+        title,
+      }
+    },
+  },
 })

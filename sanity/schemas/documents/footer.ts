@@ -1,10 +1,11 @@
-import { DocumentIcon } from '@sanity/icons'
+import { Link } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 const socialLink = {
   title: 'Social Link',
   name: 'socialLink',
   type: 'object',
+  icon: Link,
   fields: [
     defineField({
       title: 'Label',
@@ -25,7 +26,6 @@ export default defineType({
   type: 'document',
   name: 'footer',
   title: 'Footer',
-  icon: DocumentIcon,
   fields: [
     defineField({
       title: 'Social Links',

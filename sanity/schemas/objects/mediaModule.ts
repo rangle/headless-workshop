@@ -51,4 +51,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'heading',
+      media: 'image',
+    },
+    prepare({ title, media }) {
+      return {
+        subtitle: 'Media Module',
+        media,
+        title,
+      }
+    },
+  },
 })

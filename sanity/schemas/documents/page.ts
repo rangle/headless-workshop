@@ -1,11 +1,11 @@
-import { DocumentIcon, ImageIcon } from '@sanity/icons'
+import { Browser } from 'phosphor-react'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   type: 'document',
   name: 'page',
   title: 'Page',
-  icon: DocumentIcon,
+  icon: Browser,
   fields: [
     defineField({
       type: 'string',
@@ -27,18 +27,18 @@ export default defineType({
       name: 'sections',
       title: 'Sections',
       of: [
-        { type: 'MainHero' },
-        { type: 'Quote' },
-        { type: 'FeaturedItems' },
-        { type: 'MediaModule' },
-        { type: 'CtaBanner' },
-        { type: 'FeaturedText' },
+        defineArrayMember({ type: 'MainHero' }),
+        defineArrayMember({ type: 'Quote' }),
+        defineArrayMember({ type: 'FeaturedItems' }),
+        defineArrayMember({ type: 'MediaModule' }),
+        defineArrayMember({ type: 'CtaBanner' }),
+        defineArrayMember({ type: 'FeaturedText' }),
       ],
     }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'slug.current',
     },
     prepare({ title }) {
       return {

@@ -30,4 +30,17 @@ export default defineType({
       title: 'Image Alt',
     }),
   ],
+  preview: {
+    select: {
+      title: 'heading',
+      media: 'image',
+    },
+    prepare({ title, media }) {
+      return {
+        subtitle: 'Cta Banner',
+        media,
+        title,
+      }
+    },
+  },
 })

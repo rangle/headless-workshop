@@ -1,9 +1,11 @@
+import { Star } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'FeaturedItems',
   title: 'Featured Items',
   type: 'object',
+  icon: Star,
   fields: [
     defineField({
       type: 'string',
@@ -36,4 +38,15 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'heading',
+    },
+    prepare({ title }) {
+      return {
+        subtitle: 'Featured Items',
+        title,
+      }
+    },
+  },
 })

@@ -1,9 +1,11 @@
+import { CursorText } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'FeaturedText',
   title: 'Featured Text',
   type: 'object',
+  icon: CursorText,
   fields: [
     defineField({
       type: 'boolean',
@@ -25,4 +27,15 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'heading',
+    },
+    prepare({ title }) {
+      return {
+        subtitle: 'Featured Text',
+        title,
+      }
+    },
+  },
 })
