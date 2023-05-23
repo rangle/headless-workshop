@@ -21,6 +21,7 @@ export default defineType({
         {
           type: 'object',
           name: 'featuredItem',
+          icon: Star,
           fields: [
             defineField({
               type: 'string',
