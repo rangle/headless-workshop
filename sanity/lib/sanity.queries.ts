@@ -1,9 +1,5 @@
 import { groq } from 'next-sanity'
 
-export const homePageTitleQuery = groq`
-  *[_type == "home"][0].title
-`
-
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     ...,

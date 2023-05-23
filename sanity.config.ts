@@ -19,6 +19,7 @@ import { productionUrl } from './sanity/plugins/productionUrl'
 import { pageStructure, singletonPlugin } from './sanity/plugins/settings'
 import footer from './sanity/schemas/documents/footer'
 import navigation from './sanity/schemas/documents/navigation'
+import { media } from 'sanity-plugin-media'
 import page from './sanity/schemas/documents/page'
 import cta from './sanity/schemas/objects/cta'
 import ctaBanner from './sanity/schemas/objects/ctaBanner'
@@ -74,5 +75,6 @@ export default defineConfig({
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    media(),
   ],
 })

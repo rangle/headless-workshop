@@ -25,7 +25,7 @@ export const MediaModule = ({
   isDark = false,
 }: Props) => {
   return (
-    <div className={isDark ? 'bg-primary-200' : 'bg-grey-50'}>
+    <div className={isDark ? 'bg-primary-200' : 'bg-grey-100'}>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 px-5 py-12 sm:gap-x-5 md:grid-cols-2 md:py-20">
           <div
@@ -43,7 +43,7 @@ export const MediaModule = ({
                 height={350}
                 image={image}
                 alt={imageAlt}
-                className="curved-tl absolute inset-0 h-64 w-64 -translate-x-6 translate-y-6 transform sm:h-72 sm:w-72"
+                className="absolute inset-0 h-64 w-64 -translate-x-6 translate-y-6 transform sm:h-72 sm:w-72"
               />
             </div>
           </div>

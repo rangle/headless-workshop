@@ -2,13 +2,7 @@ import { createClient } from 'next-sanity'
 import type { PagePayload } from 'types'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
-import {
-  footerQuery,
-  homePageTitleQuery,
-  navigationQuery,
-  pagePaths,
-  pagesBySlugQuery,
-} from './sanity.queries'
+import { footerQuery, navigationQuery } from './sanity.queries'
 
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
@@ -17,14 +11,6 @@ const sanityClient = (token?: string) => {
   return projectId
     ? createClient({ projectId, dataset, apiVersion, useCdn, token })
     : null
-}
-
-export async function getHomePageTitle({
-  token,
-}: {
-  token?: string
-}): Promise<string | undefined> {
-  return await sanityClient(token)?.fetch(homePageTitleQuery)
 }
 
 export async function getFooter({
@@ -44,15 +30,17 @@ export async function getNavigation({
 }
 
 export async function getPageBySlug({
-  slug,
   token,
+  query,
+  params,
 }: {
-  slug: string
+  query: string
   token?: string
+  params?: any
 }): Promise<PagePayload | undefined> {
-  return await sanityClient(token)?.fetch(pagesBySlugQuery, { slug })
+  return await sanityClient(token)?.fetch(query, params)
 }
 
-export async function getPagePaths(): Promise<string[]> {
+export async function getPagePaths(pagePaths): Promise<string[]> {
   return await sanityClient()?.fetch(pagePaths)
 }

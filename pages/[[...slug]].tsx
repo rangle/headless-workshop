@@ -3,16 +3,14 @@ import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
 import { PagePayload, SettingsPayload } from 'types'
-import { buildComponent } from 'utils/buildComponent'
-
+import { pagesBySlugQuery, pagePaths } from '../sanity/lib/sanity.queries'
 import {
   getFooter,
-  getHomePageTitle,
   getNavigation,
   getPageBySlug,
   getPagePaths,
 } from '../sanity/lib/sanity.client'
-import { pagesBySlugQuery } from '../sanity/lib/sanity.queries'
+import { buildComponent } from 'utils/buildComponent'
 
 const PagePreview = lazy(() => import('layout/Preview'))
 
@@ -69,9 +67,14 @@ export const getStaticProps: GetStaticProps<
 
   const token = previewData.token
 
-  const [page, homePageTitle, navigation, footer] = await Promise.all([
-    getPageBySlug({ token, slug: params.slug ? params.slug.join('/') : '/' }),
-    getHomePageTitle({ token }),
+  const [page, navigation, footer] = await Promise.all([
+    getPageBySlug({
+      token,
+      query: pagesBySlugQuery,
+      params: {
+        slug: params.slug ? params.slug.join('/') : '/',
+      },
+    }),
     getNavigation({ token }),
     getFooter({ token }),
   ])
@@ -89,7 +92,6 @@ export const getStaticProps: GetStaticProps<
         footer,
       },
       page,
-      homePageTitle,
       preview,
       token: previewData.token ?? null,
     },
@@ -97,7 +99,7 @@ export const getStaticProps: GetStaticProps<
 }
 
 export const getStaticPaths = async () => {
-  const paths = await getPagePaths()
+  const paths = await getPagePaths(pagePaths)
 
   return {
     paths:
