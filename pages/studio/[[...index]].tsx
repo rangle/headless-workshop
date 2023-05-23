@@ -5,8 +5,8 @@ import { StudioLayout, StudioProvider } from 'sanity'
 import config from 'sanity.config'
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle(({ theme }) => ({
-  html: { backgroundColor: theme.sanity.color.base.bg },
+const GlobalStyle = createGlobalStyle(({ theme }: any) => ({
+  html: { backgroundColor: theme?.sanity.color.base.bg },
 }))
 
 export default function StudioPage() {
