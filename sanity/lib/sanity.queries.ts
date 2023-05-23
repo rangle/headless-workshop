@@ -7,7 +7,7 @@ export const pagesBySlugQuery = groq`
   }
 `
 
-export const pagePaths = groq`
+export const pagePathsQuery = groq`
   *[_type == "page" && slug.current != null].slug.current
 `
 

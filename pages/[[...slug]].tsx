@@ -2,8 +2,8 @@ import { PreviewSuspense } from '@sanity/preview-kit'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
-import { PagePayload, SettingsPayload } from 'types'
-import { pagesBySlugQuery, pagePaths } from '../sanity/lib/sanity.queries'
+import { PagePayload } from 'types'
+import { pagesBySlugQuery, pagePathsQuery } from '../sanity/lib/sanity.queries'
 import {
   getFooter,
   getNavigation,
@@ -16,7 +16,6 @@ const PagePreview = lazy(() => import('layout/Preview'))
 
 interface PageProps {
   page?: PagePayload
-  settings?: SettingsPayload
   homePageTitle?: string
   preview: boolean
   token: string | null
@@ -99,7 +98,7 @@ export const getStaticProps: GetStaticProps<
 }
 
 export const getStaticPaths = async () => {
-  const paths = await getPagePaths(pagePaths)
+  const paths = await getPagePaths(pagePathsQuery)
 
   return {
     paths:
