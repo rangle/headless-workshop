@@ -4,10 +4,10 @@ import { Cta, CtaProps } from '../Cta/Cta'
 import * as React from 'react'
 
 export type CtaBanner = {
-  heading?: string
+  heading: string
   image?: any
   imageAlt?: string
-  cta?: CtaProps
+  cta: CtaProps
 }
 
 export type Props = CtaBanner

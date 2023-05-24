@@ -1,12 +1,9 @@
 import * as React from 'react'
 import { FeaturedItem } from '../FeaturedItem/FeaturedItem'
-import type * as types from '../../types'
 
 type Blocks = {
-  eyebrow: string
   heading: string
   body: string
-  ctaSecondary: any
 }
 
 export type FeaturedItems = {
@@ -27,7 +24,7 @@ export const FeaturedItems = ({ heading, blocks }: Props) => {
           {blocks?.map((block, i) => {
             return (
               <FeaturedItem
-                key={block.heading + block.eyebrow}
+                key={block.heading + i}
                 heading={block.heading}
                 body={block.body}
               />

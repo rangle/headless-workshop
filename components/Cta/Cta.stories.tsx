@@ -15,6 +15,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   url: '/',
   text: 'Learn more',
+  hasPrimaryCta: true,
 }
 
 export const Secondary = Template.bind({})

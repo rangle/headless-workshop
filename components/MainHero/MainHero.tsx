@@ -7,10 +7,10 @@ import { Cta, CtaProps } from '../Cta/Cta'
 export type MainHero = {
   backgroundImage?: any
   eyebrow?: string
-  heading?: string
+  heading: string
   body?: string
-  heroImage?: any
-  heroImageAlt?: string
+  heroImage: any
+  heroImageAlt: string
   cta?: CtaProps
 }
 

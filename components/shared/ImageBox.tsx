@@ -2,7 +2,7 @@ import { urlForImage } from '../../sanity/lib/sanity.image'
 import Image from 'next/image'
 
 interface ImageBoxProps {
-  image?: { asset?: any }
+  image?: { asset?: any } | string
   alt?: string
   width?: number
   height?: number
@@ -19,7 +19,9 @@ export default function ImageBox({
   className,
 }: ImageBoxProps) {
   const imageUrl =
-    image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+    typeof image === 'string'
+      ? image
+      : urlForImage(image)?.height(height).width(width).fit('crop').url()
 
   return (
     <Image

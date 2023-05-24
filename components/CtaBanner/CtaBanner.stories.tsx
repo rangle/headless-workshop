@@ -15,17 +15,11 @@ export const AllOptions = Template.bind({})
 AllOptions.args = {
   heading:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  image: {
-    _type: 'image',
-    asset: {
-      _ref: 'image-df779a75311428c758ae465788c29456bbb0ba04-6000x4000-jpg',
-      _type: 'reference',
-    },
-  },
+  image:
+    'https://cdn.sanity.io/images/bhgv5hzu/production/ad273226e0d173fffa63471e379db10ad22b11f1-6000x4000.jpg',
   cta: {
     url: '/',
     text: 'Learn more',
-    isEnabled: true,
   },
 }
 
@@ -36,6 +30,5 @@ Minimal.args = {
   cta: {
     url: '/',
     text: 'Learn more',
-    isEnabled: true,
   },
 }

@@ -5,8 +5,8 @@ import { QuoteIcon } from '../QuoteIcon/QuoteIcon'
 
 export type Quote = {
   body: string
-  hasDarkBackground?: boolean
-  hasIcon?: boolean
+  hasDarkBackground: boolean
+  hasIcon: boolean
   author?: string
 }
 
