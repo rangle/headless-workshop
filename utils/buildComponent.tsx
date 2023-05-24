@@ -1,7 +1,17 @@
-// TODO: Import all the modules used in the CMS
+import { CtaBanner } from 'components/CtaBanner'
+import { FeaturedItems } from 'components/FeaturedItems'
+import { FeaturedText } from 'components/FeaturedText'
+import { MainHero } from 'components/MainHero'
+import { MediaModule } from 'components/MediaModule'
+import { Quote } from 'components/Quote'
 
 const componentsMap = {
-  // TODO: Add all the modules to the object
+  MainHero,
+  Quote,
+  FeaturedItems,
+  MediaModule,
+  CtaBanner,
+  FeaturedText,
 }
 
 export const buildComponent = ({ _type, ...props }) => {
