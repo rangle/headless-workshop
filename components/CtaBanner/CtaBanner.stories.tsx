@@ -25,7 +25,6 @@ AllOptions.args = {
   cta: {
     url: '/',
     text: 'Learn more',
-    isEnabled: true,
   },
 }
 
@@ -36,6 +35,5 @@ Minimal.args = {
   cta: {
     url: '/',
     text: 'Learn more',
-    isEnabled: true,
   },
 }

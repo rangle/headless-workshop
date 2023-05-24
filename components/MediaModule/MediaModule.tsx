@@ -6,8 +6,8 @@ import ImageBox from 'components/shared/ImageBox'
 export type MediaModule = {
   body?: string
   cta?: any
-  heading?: string
-  imageAlt?: string
+  heading: string
+  imageAlt: string
   imageOnRight: boolean
   image: any
   isDark: boolean

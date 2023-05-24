@@ -4,7 +4,7 @@ import Link from 'next/link'
 export type CtaProps = {
   url: string
   text: string
-  hasPrimaryCta?: boolean
+  hasPrimaryCta: boolean
   isEnabled?: boolean
 }
 
