@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps<
       // TODO: BONUS! Replace pagesBySlugQuery with your own query
       query: pagesBySlugQuery,
       params: {
-        slug: params.slug ? params.slug.join('/') : '/',
+        slug: params.slug ? `/${params.slug.join('/')}` : '/',
       },
     }),
     getNavigation({ token }),
