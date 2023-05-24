@@ -17,13 +17,8 @@ Primary.args = {
   heading:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
   body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  image: {
-    _type: 'image',
-    asset: {
-      _ref: 'image-df779a75311428c758ae465788c29456bbb0ba04-6000x4000-jpg',
-      _type: 'reference',
-    },
-  },
+  image:
+    'https://cdn.sanity.io/images/bhgv5hzu/production/0dd394b89a262d96cfe4dfa2b05be4bc93225ed1-3374x3374.jpg',
   imageAlt: 'plants',
   imageOnRight: true,
   cta: {
@@ -39,13 +34,8 @@ Dark.args = {
   heading:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
   body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  image: {
-    _type: 'image',
-    asset: {
-      _ref: 'image-df779a75311428c758ae465788c29456bbb0ba04-6000x4000-jpg',
-      _type: 'reference',
-    },
-  },
+  image:
+    'https://cdn.sanity.io/images/bhgv5hzu/production/0dd394b89a262d96cfe4dfa2b05be4bc93225ed1-3374x3374.jpg',
   imageAlt: 'plants',
   cta: {
     url: '/',
