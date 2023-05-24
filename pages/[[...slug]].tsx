@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps<
       token,
       query: pagesBySlugQuery,
       params: {
-        slug: params.slug ? params.slug.join('/') : '/',
+        slug: params.slug ? `/${params.slug.join('/')}` : '/',
       },
     }),
     getNavigation({ token }),
@@ -102,7 +102,9 @@ export const getStaticPaths = async () => {
 
   return {
     paths:
-      paths?.map((slug) => ({ params: { slug: `${slug}`.split('/') } })) || [],
+      paths?.map((slug) => ({
+        params: { slug: `${slug}`.replace('/', '').split('/') },
+      })) || [],
     fallback: false,
   }
 }
