@@ -17,7 +17,7 @@ export type Props = NavigationProps
 
 export const Navigation = ({ menu }: Props) => {
   return (
-    <div className="container relative z-10 mx-auto">
+    <div className="container relative z-30 mx-auto">
       <div className="absolute w-full px-5 pt-6">
         <div className="flex justify-between">
           <Link href={'/'}>
