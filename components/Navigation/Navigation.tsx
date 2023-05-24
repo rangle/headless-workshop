@@ -6,6 +6,7 @@ import { NavLogo } from './NavLogo'
 type MenuItem = {
   label: string
   url: string
+  _key: string
 }
 
 export type NavigationProps = {
@@ -27,7 +28,7 @@ export const Navigation = ({ menu }: Props) => {
               <ul className="ml-0 flex flex-row gap-8 ">
                 {menu.map((item) => {
                   return (
-                    <li key={item.url}>
+                    <li key={item._key}>
                       <Link
                         className="border-b-2 border-transparent font-semibold text-black hover:border-black"
                         href={item.url}

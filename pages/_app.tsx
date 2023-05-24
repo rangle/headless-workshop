@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      {!isSanityStudio && <Navigation menu={navigation?.menuLinks} />}
+      {!isSanityStudio && <Navigation menu={navigation?.menu} />}
       {pageProps?.preview && <PreviewBanner />}
       <Component {...pageProps} />
       {!isSanityStudio && <Footer {...footer} />}
