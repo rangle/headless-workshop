@@ -1,9 +1,11 @@
+import { NewspaperClipping } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'MediaModule',
   title: 'Media Module',
   type: 'object',
+  icon: NewspaperClipping,
   fields: [
     defineField({
       type: 'boolean',
