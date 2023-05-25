@@ -1,11 +1,11 @@
-import { CursorText } from 'phosphor-react'
+import { TextT } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'FeaturedText',
   title: 'Featured Text',
   type: 'object',
-  icon: CursorText,
+  icon: TextT,
   fields: [
     defineField({
       type: 'boolean',

@@ -1,9 +1,11 @@
+import { TextHOne } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'MainHero',
   title: 'Main Hero',
   type: 'object',
+  icon: TextHOne,
   fields: [
     defineField({
       type: 'string',

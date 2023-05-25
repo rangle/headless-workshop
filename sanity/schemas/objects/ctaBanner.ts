@@ -1,9 +1,11 @@
+import { FlagBanner } from 'phosphor-react'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'CtaBanner',
   title: 'Cta Banner',
   type: 'object',
+  icon: FlagBanner,
   fields: [
     defineField({
       type: 'string',
