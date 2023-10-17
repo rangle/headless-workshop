@@ -13,13 +13,38 @@ export default defineType({
       title: 'Title',
       validation: (rule) => rule.required(),
     }),
-    // TODO: Create fields to input slug and sections
+    defineField({
+      type: 'slug',
+      name: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'title',
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      type: 'array',
+      name: 'sections',
+      title: 'Sections',
+      of: [
+        defineArrayMember({ type: 'MainHero' }),
+        defineArrayMember({ type: 'Quote' }),
+        defineArrayMember({ type: 'FeaturedItems' }),
+        defineArrayMember({ type: 'MediaModule' }),
+        defineArrayMember({ type: 'CtaBanner' }),
+        defineArrayMember({ type: 'FeaturedText' }),
+      ],
+    }),
   ],
-  // TODO: BONUS! Configure the preview for this schema to display slug as the title and 'Page' as the subtitle
-  // preview: {
-  //   select: {},
-  //   prepare({}) {
-  //     return {}
-  //   },
-  // },
+  preview: {
+    select: {
+      title: 'slug.current',
+    },
+    prepare({ title }) {
+      return {
+        subtitle: 'Page',
+        title,
+      }
+    },
+  },
 })

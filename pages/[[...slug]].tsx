@@ -32,9 +32,9 @@ interface PreviewData {
 export default function ProjectSlugRoute(props: PageProps) {
   const { page, preview, token } = props
 
-  console.log(page)
-  // TODO: Use buildComponent to render the components on the page
-  const Page = ({ page }) => <></>
+  const Page = ({ page }) => (
+    <>{page?.sections?.map((section) => buildComponent(section))}</>
+  )
 
   if (preview) {
     return (
@@ -69,7 +69,6 @@ export const getStaticProps: GetStaticProps<
   const [page, navigation, footer] = await Promise.all([
     getPageBySlug({
       token,
-      // TODO: BONUS! Replace pagesBySlugQuery with your own query
       query: pagesBySlugQuery,
       params: {
         slug: params.slug ? `/${params.slug.join('/')}` : '/',
@@ -99,12 +98,13 @@ export const getStaticProps: GetStaticProps<
 }
 
 export const getStaticPaths = async () => {
-  // TODO: BONUS! Replace pagePathsQuery with your own query
   const paths = await getPagePaths(pagePathsQuery)
 
   return {
-    // TODO: Map the paths return from Sanity into the correct shape that Next.js is expecting
-    paths: [],
+    paths:
+      paths?.map((slug) => ({
+        params: { slug: `${slug}`.replace('/', '').split('/') },
+      })) || [],
     fallback: false,
   }
 }
